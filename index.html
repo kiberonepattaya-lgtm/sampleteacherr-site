@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Romeo’s Site</title>
     <style>
+        /* Theme Colors */
+        :root {
+            --theme-dark: #2A7F34;
+            --theme-main: #46A64C;
+            --theme-light: #CDEBCF;
+            --theme-tint: #EAF6EB;
+            --theme-tint-alt: #F3F9EC;
+            --theme-shadow: 42, 127, 52;
+            --text: #2F2F2F;
+            --text-muted: #525252;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,16 +31,16 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
-            color: #333;
+            background: linear-gradient(135deg, var(--theme-tint) 0%, var(--theme-tint-alt) 100%);
+            color: var(--text);
             line-height: 1.6;
         }
 
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%);
-            padding: 30px 20px;
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+            background: linear-gradient(135deg, var(--theme-dark) 0%, var(--theme-main) 100%);
+            padding: 32px 20px;
+            box-shadow: 0 4px 12px rgba(var(--theme-shadow), 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -43,7 +61,7 @@
         }
 
         .motto {
-            color: #C8E6C9;
+            color: var(--theme-light);
             font-size: 1em;
             font-style: italic;
             letter-spacing: 0.5px;
@@ -53,7 +71,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 32px;
         }
 
         nav a {
@@ -65,7 +83,7 @@
         }
 
         nav a:hover {
-            color: #C8E6C9;
+            color: var(--theme-light);
         }
 
         /* Main Content */
@@ -79,39 +97,39 @@
             background: white;
             padding: 60px 40px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.1);
+            box-shadow: 0 4px 16px rgba(var(--theme-shadow), 0.1);
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .hero h2 {
             font-size: 2em;
-            color: #2E7D32;
-            margin-bottom: 15px;
+            color: var(--theme-dark);
+            margin-bottom: 20px;
         }
 
         .hero p {
             font-size: 1.1em;
-            color: #555;
-            margin-bottom: 30px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
         }
 
         button {
-            background: linear-gradient(135deg, #2E7D32, #43A047);
+            background: linear-gradient(135deg, var(--theme-dark), var(--theme-main));
             color: white;
             border: none;
-            padding: 12px 35px;
+            padding: 12px 32px;
             font-size: 1em;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+            box-shadow: 0 4px 12px rgba(var(--theme-shadow), 0.3);
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.4);
+            box-shadow: 0 6px 18px rgba(var(--theme-shadow), 0.4);
         }
 
         button:active {
@@ -121,7 +139,7 @@
         #message {
             margin-top: 20px;
             font-size: 1.2em;
-            color: #2E7D32;
+            color: var(--theme-dark);
             font-weight: bold;
             display: none;
         }
@@ -131,22 +149,23 @@
             background: white;
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.1);
+            box-shadow: 0 4px 16px rgba(var(--theme-shadow), 0.1);
             margin-bottom: 40px;
-            border-left: 5px solid #43A047;
+            border-left: 5px solid var(--theme-main);
+            scroll-margin-top: 140px;
         }
 
         .section h2 {
             font-size: 1.8em;
-            color: #2E7D32;
+            color: var(--theme-dark);
             margin-bottom: 20px;
         }
 
         .section p {
             font-size: 1.05em;
-            color: #555;
+            color: var(--text-muted);
             line-height: 1.8;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .section p:last-child {
@@ -159,10 +178,10 @@
 
         .game-list li {
             font-size: 1.05em;
-            color: #555;
+            color: var(--text-muted);
             line-height: 1.8;
             padding: 12px 0;
-            border-bottom: 1px solid #E8F5E9;
+            border-bottom: 1px solid var(--theme-tint);
         }
 
         .game-list li:last-child {
@@ -171,15 +190,15 @@
         }
 
         .game-list strong {
-            color: #2E7D32;
+            color: var(--theme-dark);
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%);
+            background: linear-gradient(135deg, var(--theme-dark) 0%, var(--theme-main) 100%);
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 32px 20px;
             margin-top: 80px;
         }
 
@@ -214,7 +233,7 @@
             }
 
             nav ul {
-                gap: 15px;
+                gap: 16px;
             }
 
             nav a {
@@ -226,7 +245,8 @@
             }
 
             .section {
-                padding: 25px;
+                padding: 24px;
+                scroll-margin-top: 240px;
             }
 
             .section h2 {
@@ -251,8 +271,8 @@
         .party-greeting {
             position: relative;
             background: white;
-            padding: 30px 50px;
-            border-radius: 20px;
+            padding: 32px 48px;
+            border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             text-align: center;
             margin-bottom: 40px;
@@ -272,7 +292,7 @@
             right: 10px;
             background: #f3e8ff;
             color: #a66cff;
-            padding: 4px 10px;
+            padding: 4px 12px;
             font-size: 1em;
             border-radius: 50%;
             box-shadow: none;
@@ -308,7 +328,7 @@
 
         @media (max-width: 768px) {
             .party-greeting {
-                padding: 25px 35px;
+                padding: 24px 32px;
             }
 
             .party-greeting h2 {
